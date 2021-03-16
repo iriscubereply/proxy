@@ -4,6 +4,12 @@
 //*************************************
 
 function FindProxyForURL(url, host) {
+// If IP address is SONAR, send to VPN proxy TEST
+	if (shExpMatch(url, "*sona0.sede.corp.sanpaoloimi.com*"))
+    {
+        return "PROXY 10.30.51.5:9090";
+    }
+	
 // If IP address is Intesa PROD, send to VPN proxy PROD
     if (
 		shExpMatch(url, "*sede.corp.sanpaoloimi.com*") ||
